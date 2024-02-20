@@ -1,65 +1,80 @@
-#include <stdio.h> //biblioteca de comunicação com o usuário
-#include <stdlib.h> //biblioteca de alocação de espaço em memória
-#include <locale.h> //biblioteca de alocações de texto por região
+#include <stdio.h> //biblioteca de comunicaï¿½ï¿½o com o usuï¿½rio
+#include <stdlib.h> //biblioteca de alocaï¿½ï¿½o de espaï¿½o em memï¿½ria
+#include <locale.h> //biblioteca de alocaï¿½ï¿½es de texto por regiï¿½o
 #include <string.h> //bliblioteca das strings
 
 int main(){
 	setlocale(LC_ALL, "Portuguese"); //Definindo a linguagem
 	
-	int opcao=0;
-	int laco=1;	
+	int opcao = 0;
+	int laco = 1;	
+	char senhadm[] = "a";
+	int comparacao;
 		
-	for(laco=1;laco=1;){
-		system("cls"); //'System' chama pelos métodos da biblioteca e 'cls' é o comando que limpa a tela do console
+	printf("Acesso de administrador.\nPor favor digite sua senha: ");
+	scanf("%s", senhadm);
 		
-		printf("### Cartório da EBAC ### \n\n"); //Início do menu
-		printf("Escolha a opção desejada do menu: \n\n");
-		printf("\t1 - Registrar nomes\n\n");
-		printf("\t2 - Consultar os nomes\n\n");
-		printf("\t3 - Deletar nomes\n\n"); //Fim do menu
-		printf("\t4 - Retornar ao menu\n\n");
-		printf("Opção: ");
+	comparacao = strcmp(senhadm, "admin"); //strcmp compara os valores na memï¿½ria para confirmaï¿½ï¿½o de iguldade
+		
+	if(comparacao == 0){
+		
+		system("cls");
+		
+        for(laco=1;laco=1;){
+			system("cls"); //'System' chama pelos mï¿½todos da biblioteca e 'cls' ï¿½ o comando que limpa a tela do console
+		
+			printf("### Cartï¿½rio da EBAC ### \n\n"); //Inï¿½cio do menu
+			printf("Escolha a opï¿½ï¿½o desejada do menu: \n\n");
+			printf("\t1 - Registrar nomes\n\n");
+			printf("\t2 - Consultar os nomes\n\n");
+			printf("\t3 - Deletar nomes\n\n"); //Fim do menu
+			printf("\t4 - Retornar ao menu\n\n");
+			printf("Opï¿½ï¿½o: ");
 	
-		scanf("%d", &opcao); //Armazenando a escolha do usuário
+			scanf("%d", &opcao); //Armazenando a escolha do usuï¿½rio
 			
-		switch(opcao){
-			case 1:
-				registro();
-				break;
+			switch(opcao){
+	            case 1:
+					 registro();
+					 break;
 			
-			case 2:
-				consulta();
-				break;
+		        case 2:
+					 consulta();
+					 break;
 				
-			case 3:
-				deletar();
-				break;
+				case 3:
+					 deletar();
+					 break;
 				
-			case 4:
-		 		printf("Obrigado por utilizar esse sistema!\n");
-		 		return 0;
-			 	break;
+				case 4:
+		 			 printf("Obrigado por utilizar esse sistema!\n");
+		 			 return 0;
+			 		 break;
 				
-			default:
-				printf("Essa opção não está disponível!\n\t----------------\n");
-				system("pause");
-				break;
-		}
+				default:
+						printf("Essa opï¿½ï¿½o nï¿½o estï¿½ disponï¿½vel!\n\t----------------\n");
+						system("pause");
+						break;
+			}
+	    }
+	}
+	else{
+ 		printf("Senha invï¿½lida!");
 	}
 }
 
 int registro(){
-	printf("Voçê escolheu a opção registro de nomes!\n\t----------------\n");
+	printf("Voï¿½ï¿½ escolheu a opï¿½ï¿½o registro de nomes!\n\t----------------\n");
 	
-	//Informações básicas do usuário
-	char arquivo[40]; //Contém o nome do arquivo gerado, neste caso sera o cpf
+	//Informaï¿½ï¿½es bï¿½sicas do usuï¿½rio
+	char arquivo[40]; //Contï¿½m o nome do arquivo gerado, neste caso sera o cpf
 	char nome[40];
 	char sobrenome[40];
 	char cargo[40];
 	char cpf[40];
 	
 	printf("Digite o nome: ");
-	scanf("%s", nome); //%s monta em forma de string o texto do cliente dentro da variável nome
+	scanf("%s", nome); //%s monta em forma de string o texto do cliente dentro da variï¿½vel nome
 	printf("Digite seu sobrenome: ");
 	scanf("%s", sobrenome);
 	printf("Digite o CPF: ");
@@ -69,10 +84,10 @@ int registro(){
 	strcpy(arquivo, cpf); //copia os dados de cpf
 	
 	FILE *file; //Referencia os arquivos salvos na mesma pasta do projeto em 'file'
-	file = fopen(arquivo, "w"); //'fopen' abri file. primeiro parâmetro cria o nome do arquivo e o segundo parâmetro 'w' é um comando para criar o novo arquivo
+	file = fopen(arquivo, "w"); //'fopen' abri file. primeiro parï¿½metro cria o nome do arquivo e o segundo parï¿½metro 'w' ï¿½ um comando para criar o novo arquivo
 	fprintf(file, cpf); //Imprimi dentro de file o dado de cpf
 	fclose(file); //Fecha file
-	file = fopen(arquivo, "a"); //Comando 'a' significa atualizar um arquivo já existente
+	file = fopen(arquivo, "a"); //Comando 'a' significa atualizar um arquivo jï¿½ existente
 	fprintf(file, ", ");
 	fclose(file);
 	
@@ -80,8 +95,6 @@ int registro(){
 	
 	file = fopen(arquivo, "a");
 	fprintf(file, nome);
-	fclose(file);
-	file = fopen(arquivo, "a");
 	fprintf(file, ", ");
 	fclose(file);
 	
@@ -89,8 +102,6 @@ int registro(){
 	
 	file = fopen(arquivo, "a");
 	fprintf(file, sobrenome);
-	fclose(file);
-	file = fopen(arquivo, "a");
 	fprintf(file, ", ");
 	fclose(file);
 	
@@ -98,31 +109,29 @@ int registro(){
 	
 	file = fopen(arquivo, "a");
 	fprintf(file, cargo);
-	fclose(file);
-	file = fopen(arquivo, "a");
 	fprintf(file, ". ");
 	fclose(file);
 	
 	system("pause");
 }
 int consulta(){
-	printf("Voçê escolheu a opção consultar nomes!\n\t----------------\n");
+	printf("Voï¿½ï¿½ escolheu a opï¿½ï¿½o consultar nomes!\n\t----------------\n");
 	
-	char cpf[40]; //Armazena o usuário que queremos verificar
-	char conteudo[200]; //As informações do usuário seram armazenadas aqui
+	char cpf[40]; //Armazena o usuï¿½rio que queremos verificar
+	char conteudo[200]; //As informaï¿½ï¿½es do usuï¿½rio seram armazenadas aqui
 	
-	printf("Digite o CPF do usuário que deseja consultar: ");
-	scanf("%s", cpf); //Pega o cpf do usuário desejado e armazena na variável cpf
+	printf("Digite o CPF do usuï¿½rio que deseja consultar: ");
+	scanf("%s", cpf); //Pega o cpf do usuï¿½rio desejado e armazena na variï¿½vel cpf
 	
 	FILE *file;
-	file = fopen(cpf, "r"); //Abri os arquivos e procura pelas informaçoes do usuário
+	file = fopen(cpf, "r"); //Abri os arquivos e procura pelas informaï¿½oes do usuï¿½rio
 	
 	if(file == NULL){ //Verifica se ele esta registrado
-		printf("Esse usuário não existe.\n\n");
+		printf("Esse usuï¿½rio nï¿½o existe.\n\n");
 	}
 	
-	while(fgets(conteudo, 200, file)){ //Monta uma string com os dados do usuário dentro da variável conteudo
-		printf("Esses são os dados do usuário: ");
+	while(fgets(conteudo, 200, file)){ //Monta uma string com os dados do usuï¿½rio dentro da variï¿½vel conteudo
+		printf("Esses sï¿½o os dados do usuï¿½rio: ");
 		printf("%s", conteudo);
 		printf("\n\n");		
 	}
@@ -131,22 +140,22 @@ int consulta(){
 	system("pause");
 }
 int deletar(){
-	printf("Voçê escolheu a opção deletar nomes!\n\t----------------\n");
-	char cpf[40]; //Usuário que desejamos deletar sera buscado nos dados pelo cpf
+	printf("Voï¿½ï¿½ escolheu a opï¿½ï¿½o deletar nomes!\n\t----------------\n");
+	char cpf[40]; //Usuï¿½rio que desejamos deletar sera buscado nos dados pelo cpf
 		
-	printf("Escolha o CPF do usuário: ");
-	scanf("%s", cpf); //Armazena o cpf na variável
+	printf("Escolha o CPF do usuï¿½rio: ");
+	scanf("%s", cpf); //Armazena o cpf na variï¿½vel
 	
 	FILE* file = fopen(cpf, "r"); //Acessa os arquivos
 	fclose(file);	
-	if(file == NULL){ //Verifica se o usuário existe
-		printf("Esse usuário não existe.\n\n");
+	if(file == NULL){ //Verifica se o usuï¿½rio existe
+		printf("Esse usuï¿½rio nï¿½o existe.\n\n");
 	}
 	
-	if(remove(cpf) == 0){ //Tenta remover o usuário e verifica se deu tudo certo
-		printf("Usuário deletado!\n\n");
+	if(remove(cpf) == 0){ //Tenta remover o usuï¿½rio e verifica se deu tudo certo
+		printf("Usuï¿½rio deletado!\n\n");
 	} 
-	else{ //Caso falhe a remoção do usuário
+	else{ //Caso falhe a remoï¿½ï¿½o do usuï¿½rio
 		printf("Falha! Tente novamente...");
 	}
 	

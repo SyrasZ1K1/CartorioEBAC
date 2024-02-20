@@ -1,0 +1,43 @@
+CREATE TABLE usuarios
+(
+  cpf integer,
+  nome varchar(50),
+  sobrenome varchar(50),
+  cargo varchar(50),
+  curso_id integer
+);
+
+CREATE TABLE cursos
+(
+  id integer,
+  nome_curso varchar(50),
+  professor varchar(50),
+  categoria varchar(50)
+);
+
+INSERT INTO usuarios(cpf, nome, sobrenome, cargo, curso_id) values('347','Thiago','Rocha','aluno','1');
+INSERT INTO usuarios(cpf, nome, sobrenome, cargo, curso_id) values('134','Jeremias','Santos','aluno','2');
+INSERT INTO usuarios(cpf, nome, sobrenome, cargo, curso_id) values('211','José','Maria','aluno','1');
+INSERT INTO usuarios(cpf, nome, sobrenome, cargo, curso_id) values('684','Caio','Barbosa','aluno','1');
+INSERT INTO usuarios(cpf, nome, sobrenome, cargo, curso_id) values('512','Denis','Alves','aluno','1');
+
+INSERT INTO cursos(id, nome_curso, professor, categoria) values('1','TI do Zero','Pedro','programação');
+INSERT INTO cursos(id, nome_curso, professor, categoria) values('2','SQL','Ana','Dados');
+
+--QUERY TABELA
+SELECT*FROM usuarios
+WHERE cpf = '684';
+SELECT*FROM usuarios
+WHERE cpf = '512';
+
+UPDATE usuarios
+SET curso_id = '2'
+WHERE cpf = '684';
+UPDATE usuarios
+SET curso_id = '2'
+WHERE cpf = '512';
+
+SELECT*FROM usuarios
+WHERE cpf = '684';
+SELECT*FROM usuarios
+WHERE cpf = '512';

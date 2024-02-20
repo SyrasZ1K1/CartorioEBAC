@@ -1,0 +1,4 @@
+Cartório EBAC - Propostas de evolutivas
+<1.0>
+
+Algumas ideias seria uma interface mais estética e intuitiva para o aprimoramento da experiência de usuário; implantação da aplicação desenvolvida em domínio na internet para acesso remoto; e método de backup dos dados para como prevensão contra possíveis problemas; e um banco de dados relacional, para um armazenamento mais seguro, preciso e duradouro.

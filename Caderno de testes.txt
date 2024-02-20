@@ -1,0 +1,22 @@
+MAIN()
+	100% cenários de senha correta e errada testados funcionando.
+
+	for()
+		100% todas as mensagens são impressas na tela e chamadas de funções
+		occore perfeitamente.
+
+
+Registro() 100%
+	Registro de usuários funcionando
+	Informações requeridas são: cpf, nome, sobrenome e cargo
+
+Consulta() 100%
+	Consulta funcionando
+	Cenário de usuário inexistente retornando erro: ok
+	Busca de dados com base no cpf dos usuários
+	Informações retornadas: cpf, nome e sobrenome, cargo
+
+Deletar() 100%
+	Deletar funcionando
+	Cenário de usuário inexistente retornando erro: ok
+	Eliminar usuários cadastrados com base no cpf
